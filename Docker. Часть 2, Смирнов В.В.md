@@ -8,7 +8,7 @@
 
 Docker-compose устанавливался на операционную систему `Astra Linux` с помощью команды `apt install docker-compose`
 
-> ![img](img/img_1.png)
+> ![img](img/docker_install.png)
 
 Docker-compose позволяет запускать множество контейнеров за раз с помощью файла конфигурации `yaml`, в котором можно указать различные настройки для запускаемых контейнеров и таким образом сразу развернуть работающий проект. Альтернативой ему является docker run, который может запускать за раз только один контейнер и работает через командную строку, либо через `Dockerfile`, который только собирает образ.
 
@@ -118,6 +118,7 @@ rule_files:
 scrape_configs:
 ```
 
+> ![img](img/prometheus.png)
 
 ---
 
@@ -171,6 +172,9 @@ scrape_configs:
     static_configs:
       - targets: ['192.168.53.131:9091']
 ```
+
+> ![img](img/pushgateway.png)
+
 ---
 
 ### Задание 5 
@@ -211,6 +215,8 @@ grafana:
 admin_user = smirnov_vv
 admin_password = netology
 ```
+
+> ![img](img/grafana.png)
 
 ---
 
@@ -324,9 +330,15 @@ networks:
         gateway: 10.5.0.1
 ```
 
-* 
+* Скриншот команды `docker ps` после запуске `compose.yaml`
 
+> ![img](img/docker_ps.png)
 
+* Cкриншот полученной метрики и графика, постоенного на её основе
+
+> ![img](img/pushgateway_metric.png)
+
+> ![img](img/grafana_metric.png)
 
 ---
 
@@ -341,6 +353,8 @@ networks:
 ## Решение
 
 Для остановки и удаления всех `docker-compose` контейнеров используется команда `docker-compose down`, которая останавливает и удаляет все контейнеры, включая сети и подключения, описанные в `compose.yaml`.
+
+> ![img](img/docker_down.png)
 
 ---
 
@@ -360,6 +374,10 @@ networks:
 4. Обеспечьте внешний доступ к порту 9093 c докер-сервера.
 
 В качестве решения приложите скриншот с событием из Alertmanager.
+
+## Решение
+
+> ![img](img/alertmanager.png)
 
 ---
 
