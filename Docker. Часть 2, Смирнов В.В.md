@@ -130,25 +130,9 @@ scrape_configs:
 
 ## Решение
 
-Редактирую файл `compose.yaml`:
+Редактирую файл `compose.yaml` и добавляю `pushgateway`:
 
 ```
-version: '3'
-
-services:
-  prometheus:
-    image: prom/prometheus:v2.47.2
-    container_name: smirnov_vv-netology-prometheus
-    command: --web.enable-lifecycle  --config.file=/etc/prometheus/prometheus.yaml
-    ports:
-      - 9090:9090
-    volumes:
-      - ./prometheus:/etc/prometheus
-      - prometheus-data:/prometheus
-    networks:
-      - smirnov_vv-my-netology-hw
-    restart: always
-
   pushgateway:
     image: prom/pushgateway:v1.6.2
     container_name: smirnov_vv-netology-pushgateway
@@ -272,7 +256,6 @@ admin_password = netology
 * `compose.yaml` целиком:
 
 ```
-
 version: '3'
 
 services:
