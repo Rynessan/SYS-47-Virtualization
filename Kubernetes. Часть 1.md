@@ -21,6 +21,8 @@ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest
 sudo dpkg -i minikube_latest_amd64.deb
 minikube start
 ```
+2. Работа системных контейнеров:
+> ![img](img/kubernetes_pods.png)
 
 ---
 
